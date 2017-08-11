@@ -1,0 +1,45 @@
+BackendBundle\Entity\Tematicas:
+    type: entity
+    table: tematicas
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombre:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        horasDia:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: horas_dia
+        almuerzo:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        horasTarde:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: hora_tarde
+        horaInicio:
+            type: time
+            nullable: true
+            column: hora_inicio
+        horaFin:
+            type: time
+            nullable: true
+            column: hora_fin
+    lifecycleCallbacks: {  }

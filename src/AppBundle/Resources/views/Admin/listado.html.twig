@@ -1,0 +1,57 @@
+{% extends "AppBundle:Layouts:layout.html.twig"%}
+{% block content%}
+<div id="blue">
+		<div class="container">
+			<div class="row centered">
+				<div class="col-lg-8 col-lg-offset-2">
+
+				<h4>Listado Conferencias</h4>
+
+				</div>
+			</div><!-- row -->
+		</div><!-- container -->
+	</div><!--  bluewrap -->
+    <div class="container w">
+		<div class="row left">
+
+            <div class="count">
+                <span class="label label-primary">
+                Total Conferencias : {{pagination.getTotalItemCount}}
+                </span>
+            </div>
+                <hr />
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <th>Duracion</th>
+																						<th>Tema</th>
+                                            <!--th>Actions</th-->
+        																</tr>
+                                        </thead>
+
+                                            {#{dump(pagination)}#}
+                                            {% for conferencias  in pagination.items %}
+                                            <tr>
+                                                <td>{{ conferencias.nombre }}</td>
+                                                <td>{{ conferencias.duracion }} minutos</td>
+																								<td>{{ conferencias.tematicas.nombre }}</td>
+                                                <!--td>
+																								<a class="btn btn-primary" href="{{path('app_homepage',{ 'id': conferencias.id })}}">Edit</a>
+																								</td-->
+                                            </tr>
+                                            {% endfor %}
+                                        </table>
+                                    </div>
+
+                                    <div class="navigation">
+                                        {{knp_pagination_render(pagination)}}
+                                    </div>
+                                    <div class="clearfix"></div>
+
+        </div>
+    </div>
+
+
+{% endblock %}

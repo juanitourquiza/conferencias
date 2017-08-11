@@ -1,0 +1,46 @@
+BackendBundle\Entity\Conferencias:
+    type: entity
+    table: conferencias
+    indexes:
+        fk_conferencias_tematicas_idx:
+            columns:
+                - tematicas_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombre:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        descripcion:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        duracion:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+    manyToOne:
+        tematicas:
+            targetEntity: Tematicas
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                tematicas_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

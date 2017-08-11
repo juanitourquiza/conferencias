@@ -1,0 +1,8 @@
+app_homepage:
+    path: /admin
+    #defaults: { _controller: AppBundle:User:login }
+    defaults: { _controller: AppBundle:Admin:home }
+
+app_admin:
+    resource: "@AppBundle/Resources/config/routing/admin.yml"
+    prefix: /admin

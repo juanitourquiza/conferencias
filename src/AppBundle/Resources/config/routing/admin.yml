@@ -1,0 +1,15 @@
+listado:
+    path: /listado
+    defaults: { _controller: AppBundle:Admin:listado }
+
+tematicas:
+    path: /tematicas
+    defaults: { _controller: AppBundle:Admin:tematicas }
+
+distribucion:
+    path: /distribucion/{id}
+    defaults: { _controller: AppBundle:Admin:distribucion }
+
+registro:
+    path: /registro
+    defaults: { _controller: AppBundle:Admin:registro }

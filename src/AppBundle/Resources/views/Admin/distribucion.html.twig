@@ -1,0 +1,70 @@
+{% extends "AppBundle:Layouts:layout.html.twig"%}
+
+{% block javascripts %}
+{{parent()}}
+<script src="{{ asset('assets/js/custom/ordersku.js') }}"></script>
+<script>
+
+</script>
+{% endblock %}
+
+{% block content%}
+<div id="blue">
+		<div class="container">
+			<div class="row centered">
+				<div class="col-lg-8 col-lg-offset-2">
+
+				<h4>Distribucion</h4>
+
+				</div>
+			</div><!-- row -->
+		</div><!-- container -->
+	</div><!--  bluewrap -->
+    <div class="container w">
+		<div class="row left">
+                <hr />
+								{#{dump(conferencia)}#}
+                                    <div class="table-responsive">
+																		<table class="table table-striped" >
+																			<tr>
+																			{% if conferencia is empty %}
+																				<td colspan=4 align=center><b>No existen conferencias </b></td>
+																			{% else %}
+																				<td colspan=4 align=center><b>Tematica {{ conferencia['0'].tematicas.id }} - {{ conferencia['0'].tematicas.nombre }} </b></td>
+
+																			</tr>
+																			<tr>
+																					<td>Hora</td>
+																					<td>Tema</td>
+																					<td>Duracion</td>
+																			</tr>
+																			{% set horai= conferencia['0'].tematicas.horainicio | date ("H:i") %}
+																			{% set result = suma_minutos(horai, 0) %}
+																			{% set break = false %}
+																			{% for ok in conferencia if not break %}
+																				<tr>
+																					<td>{{ result }}</td>
+																					<td>{{ ok.nombre }}</td>
+																					<td>{{ ok.duracion }}</td>
+																					{% set result = suma_minutos(result, ok.duracion ) %}
+																					{% if result ==  ok.tematicas.almuerzo %}
+																					 <tr><td colspan= 3 align=center>ALMUERZO</td></tr>
+																					{% endif %}
+																					{% if result ==  ok.tematicas.horasTarde %}
+																					 <tr><td colspan=3 align=center>FIN CONFERENCIA</td></tr>
+																					 {% set break = true %}
+																					{% endif %}
+
+																				</tr>
+																			{% endfor %}
+																		{% endif %}
+																		</table>
+
+																		</div>
+
+                                    <div class="clearfix"></div>
+        </div>
+    </div>
+
+
+{% endblock %}
