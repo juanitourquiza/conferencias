@@ -6,7 +6,7 @@ Sistema realizado con Symfony Framework.
 Tiene la posibilidad de ingresar temas de conferencias, ver el listado y realizar
 una distribucion de conferencias segun la tematica.
 
-Que encuentra en el siste,a?
+Que encuentra en el sistema?
 --------------
 
 El sistema esta realizado de la siguiente forma:
