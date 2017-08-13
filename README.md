@@ -32,3 +32,20 @@ Posibles mejoras
   * Permitir cambiar el estado de cada conferencia.
 
   * Agregar la opcion de crear y editar nuevas tematicas.
+
+
+
+Instalacion
+--------------
+
+    * Hacer clon del proyecto git clone
+
+    * Actualizar con composer (composer update)
+
+    * Importar Base de datos
+
+    * Configurar un virtualhost a la ruta web de Symfony
+
+    * Probar la url: http://conferencias.dev/admin/
+
+    * Ruta online: http://sd-1123917-h00009.ferozo.net/admin
